@@ -15,3 +15,6 @@ __pycache__/*
 *.pytest_cache
 *.tox
 *.coverage.*
+.env
+*.env.*
+*.DS_Store

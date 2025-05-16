@@ -17,4 +17,4 @@ __pycache__/*
 *.coverage.*
 .env
 *.env.*
-*.DS_Store
+*.DS_Store.env

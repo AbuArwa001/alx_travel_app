@@ -98,6 +98,7 @@ ROOT_URLCONF = "alx_travel_app.urls"
 
 TEMPLATES = [
     {
+        # 'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [],
         "APP_DIRS": True,
@@ -161,10 +162,14 @@ CACHES = {
     # ImproperlyConfigured exception if not found.
     #
     # The cache() method is an alias for cache_url().
-    'default': env.cache(),
+    # 'default': env.cache(),
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
 
     # read os.environ['REDIS_URL']
-    'redis': env.cache_url('REDIS_URL')
+    # 'redis': env.cache_url('REDIS_URL')
 }
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -176,7 +181,7 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
